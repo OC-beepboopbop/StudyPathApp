@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Path – Your Personal Exam Planner</title>
+ <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #fefefe 0%, #f0faff 100%);
+      color: #1f2937;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #22577A;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+    }
+    .hero ul li {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .glider-contain {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .glider img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .glider-prev, .glider-next {
+      background: #22577A;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #47CACC;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+    .waitlist {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .waitlist h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .waitlist input[type="email"] {
+      padding: 0.75rem;
+      width: 100%;
+      max-width: 350px;
+      margin: 1rem auto;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      display: block;
+    }
+    .waitlist button {
+      padding: 0.75rem 2em;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Study Path</h1>
+    <p>With a simple, intuitive design, Study Path takes care of the planning so you can focus on learning. Here's how:</p>
+    <ul style="text-align:left; max-width: 700px; margin: 1rem auto; padding-left: 1.25rem;">
+      <li>Create a personalized study plan tailored to your schedule and learning style</li>
+      <li>Load in your goals across books, videos, question banks, and flashcards — and we’ll break it into a clear daily plan</li>
+      <li>Log your progress, skip days guilt-free, and let the app automatically adjust your schedule</li>
+    </ul>
+    <p style="margin-top:1rem;">Perfect when preparing for finals, board exams, or licensing exams</p>
+  </section>
+
+  <div class="glider-contain">
+    <button class="glider-prev">«</button>
+    <button class="glider-next">»</button>
+    <div class="glider">
+      <img src="screenshot1.png" alt="Screenshot 1">
+      <img src="screenshot2.png" alt="Screenshot 2">
+      <img src="screenshot3.png" alt="Screenshot 3">
+      <img src="screenshot4.png" alt="Screenshot 4">
+      <img src="screenshot5.png" alt="Screenshot 5">
+      <img src="screenshot6.png" alt="Screenshot 6">
+      <img src="screenshot7.png" alt="Screenshot 7">
+    </div>
+    <div id="dots"></div>
+  </div>
+
+  <section class="hero">
+    <a href="https://apps.apple.com/us/app/study-path/id6745130878" class="cta-button">Download on the App Store</a>
+  </section>
+
+  <section class="waitlist">
+    <h2>Not on iOS?</h2>
+    <p>Join the waitlist for Android and Web versions.</p>
+    <form action="https://formspree.io/f/mblovjor" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit">Join the Waitlist</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Study Path. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+  <script>
+    const glider = new Glider(document.querySelector('.glider'), {
+      slidesToShow: 1,
+      dots: '#dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      },
+      draggable: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3
+          }
+        }
+      ]
+    });
+
+    // Autoplay every 4 seconds
+    setInterval(() => {
+      glider.scrollItem('next');
+    }, 4000);
+  </script>
+
+</body>
+</html>
